@@ -1,34 +1,16 @@
-import './App.css';
-import React, { useEffect, useState } from 'react';
-import io from 'socket.io-client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LobbyPage from './components/LobbyPage';
+import CodeBlockPage from './components/CodeBlockPage';
 
-const socket = io('http://localhost:4000'); // Connect to the server
-
-function App() {
-  const [usersData, setUsersData] = useState({ users: [] });
-
-  useEffect(() => {
-    // Listen for 'dataUpdate' event from the server
-    socket.on('dataUpdate', (updatedData) => {
-      setUsersData(prevState => ({ ...prevState, users: updatedData.users }));
-    });
-
-    // Clean up event listener on component unmount
-    return () => {
-      socket.off('dataUpdate');
-    };
-  }, []);
-
-  return (
-    <div className="App">
-      {(typeof usersData.users === 'undefined') ?
-        <h1>Loading...</h1>
-        : (usersData.users.map((value, index) => {
-          return (<h1 key={index}>{value}</h1>);
-        }))
-      }
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<LobbyPage />} />
+                <Route path="/code/" element={<CodeBlockPage />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
