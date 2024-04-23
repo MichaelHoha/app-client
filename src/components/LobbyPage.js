@@ -50,9 +50,10 @@ const LobbyPage = () => {
     return (
         <div className='lobby-page'>
             <h1>Choose code block</h1>
-            <ul>
+            <ul className='lobby-list'>
                 {codeBlocks.map(block => (
-                    <h2 onClick={() => handleClick(block.title)} key={block.id}>{block.title}</h2>
+                    <li className='lobby-item' onClick={() => handleClick(block.title)} key={block.id}>
+                        <p>{block.title}</p><button><span>&#8594;</span></button></li>
                 ))}
             </ul>
         </div>
