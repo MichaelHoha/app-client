@@ -37,7 +37,7 @@ const LobbyPage = () => {
 
   // open new navigations urls
 
-  const handleClick = (id) => navigate("/code/" + id);
+  const handleClick = (id) => navigate("/codeblocks/" + id);
 
   return (
     <div className="lobby-page">
