@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 import "./CodeBlockPage.css";
@@ -61,7 +61,7 @@ const CodeBlockPage = () => {
   }, []);
 
   const handleCodeChange = (content) => {
-    // tried to add delay use debounce but that didn't worked
+    // tried to add delay use debounce but that didn't as expected
     socket.emit("codeChange", { id: selectedBlockId, content });
   };
 

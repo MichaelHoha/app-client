@@ -10,8 +10,6 @@ const CodeBlockItem = ({ block }) => {
   // open new navigations urls using the useNavigae react-router-dom
   const handleClick = (id) => {
     navigate("/codeblocks/" + id);
-    //console.log("Block info " + block.participants_count);
-    //socket.emit('setPraticipantesCount', id);
   };
 
   return (
