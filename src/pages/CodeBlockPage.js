@@ -43,9 +43,11 @@ const CodeBlockPage = () => {
     });
 
     // waiting for code changes from the server
-    socket.on("praticipantesCountDown", ({ id, content }) => {
+    socket.on("praticipantesCountDown", ({ id, codeBlockParticipants }) => {
       setCodeBlock((prevBlock) =>
-        id === selectedBlockId ? { ...prevBlock, content } : prevBlock
+        id === selectedBlockId
+          ? { ...prevBlock, codeBlockParticipants }
+          : prevBlock
       );
     });
 
