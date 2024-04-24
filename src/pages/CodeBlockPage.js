@@ -51,15 +51,7 @@ const CodeBlockPage = () => {
       );
     });
 
-    // socket.on("setPraticipantesCount", ({ id, participants_count }) => {
-    //   setPraticipantesCount((prevBlock) =>
-    //     id === selectedBlockId
-    //       ? { ...prevBlock, participants_count }
-    //       : prevBlock
-    //   );
-    // });
-
-    // Clean up event listeners when component unmounts
+    // returns when the component is unmounted -> means closed
     return () => {
       socket.emit("praticipantesCountDown", {
         id: selectedBlockId,
@@ -72,7 +64,7 @@ const CodeBlockPage = () => {
   }, []);
 
   const handleCodeChange = (content) => {
-    // TODO add delay use debounce
+    // tried to add delay use debounce but that didn't worked
     socket.emit("codeChange", { id: selectedBlockId, content });
   };
 
@@ -84,6 +76,7 @@ const CodeBlockPage = () => {
         <SyntaxHighlighter language="javascript" style={docco}>
           {codeBlock?.content}
         </SyntaxHighlighter>
+
         <textarea
           className="code-textarea"
           value={codeBlock?.content}
@@ -94,7 +87,6 @@ const CodeBlockPage = () => {
             left: 0,
             width: "100%",
             height: "100%",
-            opacity: 0, // Make the textarea invisible but still clickable/editable
             zIndex: 1, // Ensure textarea is on top of SyntaxHighlighter
             cursor: "text", // Set cursor to text
           }}
