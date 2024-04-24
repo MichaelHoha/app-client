@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 import "./CodeBlockPage.css";
-import debounce from "lodash.debounce";
 import "highlight.js/styles/default.css";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -13,9 +12,8 @@ const CodeBlockPage = () => {
   const [codeBlock, setCodeBlock] = useState(null);
   const [codeBlockParticipants, setPraticipantesCount] = useState(0);
   const { id: selectedBlockId } = useParams();
-  const codeRef = useRef(null);
 
-  // todo export to hook new file useCodeBlock
+  // TODO export to hook new file useCodeBlock
   useEffect(() => {
     // listens to the initial code block from the server
     socket.emit("initialCodeBlock", { id: selectedBlockId });
@@ -24,7 +22,6 @@ const CodeBlockPage = () => {
     socket.on(
       "initialCodeBlock",
       (initialCodeBlock) => {
-        // console.log("initialCodeBlock", initialCodeBlock);
         setCodeBlock(initialCodeBlock);
 
         socket.emit("setPraticipantesCount", {
@@ -72,6 +69,7 @@ const CodeBlockPage = () => {
     <div className="code-block-page-style">
       <h1 className="block-page-title">Code Block</h1>
       <h2 className="func-title">{codeBlock?.title}</h2>
+
       <div style={{ position: "relative" }}>
         <SyntaxHighlighter language="javascript" style={docco}>
           {codeBlock?.content}
@@ -81,15 +79,6 @@ const CodeBlockPage = () => {
           className="code-textarea"
           value={codeBlock?.content}
           onChange={(e) => handleCodeChange(e.target.value)}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            zIndex: 1, // Ensure textarea is on top of SyntaxHighlighter
-            cursor: "text", // Set cursor to text
-          }}
         />
       </div>
     </div>

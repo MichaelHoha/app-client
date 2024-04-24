@@ -1,12 +1,12 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import CodeBlockItem from "./CodeBlockItem";
 
 const CodeBlockList = (props) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  // open new navigations urls using the useNavigae react-router-dom
-  const handleClick = (id) => navigate("/codeblocks/" + id);
+  // // open new navigations urls using the useNavigae react-router-dom
+  // const handleClick = (id) => navigate("/codeblocks/" + id);
+
   return (
     <div>
       <ul className="lobby-list">
