@@ -19,7 +19,7 @@ const LobbyPage = () => {
 
   return (
     <div className="lobby-page">
-      <h1 className="lobby-title"> block</h1>
+      <h1 className="lobby-title">Code share block app</h1>
       {isLoadibg ? (
         <h1>Loading...</h1>
       ) : (
