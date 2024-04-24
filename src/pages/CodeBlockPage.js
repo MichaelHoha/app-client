@@ -50,13 +50,13 @@ const CodeBlockPage = () => {
     //     id === selectedBlockId ? { ...prevBlock, content } : prevBlock
     //   );
 
-    socket.on("setPraticipantesCount", ({ id, participants_count }) => {
-      setPraticipantesCount((prevBlock) =>
-        id === selectedBlockId
-          ? { ...prevBlock, participants_count }
-          : prevBlock
-      );
-    });
+    // socket.on("setPraticipantesCount", ({ id, participants_count }) => {
+    //   setPraticipantesCount((prevBlock) =>
+    //     id === selectedBlockId
+    //       ? { ...prevBlock, participants_count }
+    //       : prevBlock
+    //   );
+    // });
 
     // Clean up event listeners when component unmounts
     return () => {
