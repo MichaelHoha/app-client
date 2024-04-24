@@ -1,5 +1,9 @@
-.App {
-  text-align: center;
+.app-page {
+  min-height: 100vh; /* Set minimum height to cover the entire viewport */
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  background-color: #f0f0f0; /* Light gray background color */
 }
 
 .App-logo {

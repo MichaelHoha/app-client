@@ -42,11 +42,12 @@ const CodeBlockPage = () => {
       );
     });
 
-    // // Listen for code changes from the server
-    // socket.on("praticipantesCountDown", ({ id, content }) => {
-    //   setCodeBlock((prevBlock) =>
-    //     id === selectedBlockId ? { ...prevBlock, content } : prevBlock
-    //   );
+    // waiting for code changes from the server
+    socket.on("praticipantesCountDown", ({ id, content }) => {
+      setCodeBlock((prevBlock) =>
+        id === selectedBlockId ? { ...prevBlock, content } : prevBlock
+      );
+    });
 
     // socket.on("setPraticipantesCount", ({ id, participants_count }) => {
     //   setPraticipantesCount((prevBlock) =>
