@@ -7,14 +7,22 @@ The Remote Coding web application is designed to facilitate remote coding sessio
 
 **Tools**
 
-Frontend: React.js
-Backend: Node.js & Express.js
-Database: PostgreSQL
-ORM (Database Driver): Sequelize
-Hosting: Heroku
-Syntax Highlighting: Highlight.js
-Real-time Data: Socket.io
-Architecture Overview
+* Frontend: React.js
+
+* Backend: Node.js & Express.js
+
+* Database: PostgreSQL
+
+* ORM (Database Driver): Sequelize
+
+* Hosting: Heroku
+
+* Syntax Highlighting: Highlight.js
+
+* Real-time Data: Socket.io
+
+**Architecture Overview**
+
 The project follows a client-server architecture, with the frontend and backend components communicating via REST API and Express. The PostgreSQL database is managed using Sequelize ORM. Real-time communication between users is implemented using Socket.io for instant code updates.
 
 **Features**
@@ -26,9 +34,13 @@ Clicking on a code block redirects users to the corresponding code block page.
 **Code Block Page**
 
 Displays the selected code block.
+
 Mentor View: Displays the code block in read-only mode (not fully implemented).
+
 Student View: Allows students to edit the code block in real-time.
-Deployment
+
+**Deployment**
+
 Both frontend (app-client) and backend (app-server) are deployed separately on Heroku. Continuous integration pipelines ensure smooth deployment from GitHub repositories to Heroku.
 
 **Conclusion**
