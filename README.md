@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+**Remote Coding Web Application - Client**
+**About the Project**
+<img width="1368" alt="Architecture" src="https://github.com/MichaelHoha/app-client/assets/62392060/0ad1ac3d-7ca7-4c05-bb84-32fce45dc04a">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Remote Coding web application is designed to facilitate remote coding sessions between mentors and students using real-time collaboration features. This README provides an overview of the project architecture, technologies, features, and implementation details.
 
-## Available Scripts
+**Tools**
+Frontend: React.js
+Backend: Node.js & Express.js
+Database: PostgreSQL
+ORM (Database Driver): Sequelize
+Hosting: Heroku
+Syntax Highlighting: Highlight.js
+Real-time Data: Socket.io
+Architecture Overview
+The project follows a client-server architecture, with the frontend and backend components communicating via REST API and Express. The PostgreSQL database is managed using Sequelize ORM. Real-time communication between users is implemented using Socket.io for instant code updates.
 
-In the project directory, you can run:
+**Features**
+**Lobby Page**
+Displays a list of available code blocks for selection.
+Clicking on a code block redirects users to the corresponding code block page.
 
-### `npm start`
+**Code Block Page**
+Displays the selected code block.
+Mentor View: Displays the code block in read-only mode (not fully implemented).
+Student View: Allows students to edit the code block in real-time.
+Deployment
+Both frontend (app-client) and backend (app-server) are deployed separately on Heroku. Continuous integration pipelines ensure smooth deployment from GitHub repositories to Heroku.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Conclusion**
+The Remote Coding web application provides a seamless platform for mentors and students to engage in collaborative coding sessions remotely. It offers real-time code editing and syntax highlighting features, enhancing the learning experience.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
