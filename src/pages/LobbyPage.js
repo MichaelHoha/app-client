@@ -25,7 +25,7 @@ const LobbyPage = () => {
     <div className="lobby-page">
       <h1>Choose code block</h1>
       {isLoadibg ? (
-        <p>Loading...</p>
+        <h1>Loading...</h1>
       ) : (
         // TODO export to new component CodeBlockList
         <ul className="lobby-list">
