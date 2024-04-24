@@ -18,7 +18,7 @@ const LobbyPage = () => {
       });
   }, []);
 
-  // open new navigations urls
+  // open new navigations urls using the useNavigae react-router-dom
   const handleClick = (id) => navigate("/codeblocks/" + id);
 
   return (

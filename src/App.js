@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LobbyPage from "./components/LobbyPage";
-import CodeBlockPage from "./components/CodeBlockPage";
+import LobbyPage from "./pages/LobbyPage";
+import CodeBlockPage from "./pages/CodeBlockPage";
 
 const App = () => {
   return (
