@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 import "./CodeBlockPage.css";
+import debounce from "lodash.debounce";
+import "highlight.js/styles/default.css";
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const socket = io("https://cst-codeblocks-c252dfeccb9b.herokuapp.com");
 
@@ -9,6 +13,7 @@ const CodeBlockPage = () => {
   const [codeBlock, setCodeBlock] = useState(null);
   const [codeBlockParticipants, setPraticipantesCount] = useState(0);
   const { id: selectedBlockId } = useParams();
+  const codeRef = useRef(null);
 
   // todo export to hook new file useCodeBlock
   useEffect(() => {
@@ -27,20 +32,17 @@ const CodeBlockPage = () => {
           codeBlockParticipants,
         });
 
-        console.log(
-          "This is from the codeBloack page component " +
-            initialCodeBlock.participants_count
-        );
+        
       },
       []
     );
 
     // Listen for code changes from the server
     socket.on("codeChange", ({ id, content }) => {
-      setCodeBlock((prevBlock) =>
-        id === selectedBlockId ? { ...prevBlock, content } : prevBlock
-      );
-    });
+        setCodeBlock((prevBlock) =>
+          id === selectedBlockId ? { ...prevBlock, content } : prevBlock
+        );
+        });
 
     // // Listen for code changes from the server
     // socket.on("praticipantesCountDown", ({ id, content }) => {
@@ -49,15 +51,11 @@ const CodeBlockPage = () => {
     //   );
 
     socket.on("setPraticipantesCount", ({ id, participants_count }) => {
-      
       setPraticipantesCount((prevBlock) =>
         id === selectedBlockId
           ? { ...prevBlock, participants_count }
           : prevBlock
       );
-      // console.log(
-      //   "This is from the codeBloack page component " + codeBlockParticipants
-      // );
     });
 
     // Clean up event listeners when component unmounts
@@ -66,7 +64,6 @@ const CodeBlockPage = () => {
         id: selectedBlockId,
         codeBlockParticipants,
       });
-     // console.log("This is the unamount " +  id);
 
       socket.off("initialCodeBlocks");
       socket.off("codeChange");
@@ -74,22 +71,34 @@ const CodeBlockPage = () => {
   }, []);
 
   const handleCodeChange = (content) => {
-    // TODO add delay use debounce
+// TODO add delay use debounce
     socket.emit("codeChange", { id: selectedBlockId, content });
   };
 
   return (
     <div className="code-block-page-style">
-      <h1 className="block-page-title">Code Block</h1>
-      <h2 className="func-title">{codeBlock?.title}</h2>
+    <h1 className="block-page-title">Code Block</h1>
+    <h2 className="func-title">{codeBlock?.title}</h2>
+    <div style={{ position: 'relative' }}>
+      <SyntaxHighlighter language="javascript" style={docco}>
+        {codeBlock?.content}
+      </SyntaxHighlighter>
       <textarea
         className="code-textarea"
         value={codeBlock?.content}
         onChange={(e) => handleCodeChange(e.target.value)}
-        rows={10}
-        cols={50}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          opacity: 0, // Make the textarea invisible but still clickable/editable
+          zIndex: 1, // Ensure textarea is on top of SyntaxHighlighter
+        }}
       />
     </div>
+  </div>
   );
 };
 
