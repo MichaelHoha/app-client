@@ -5,7 +5,6 @@ import "./LobbyPage.css";
 const LobbyPage = () => {
   const [codeBlocks, setCodeBlocks] = useState([]);
   const [isLoadibg, setIsLoading] = useState(true);
-
   
   // here we get the data from "herokuapp/api/codeBlocks" and set it to the codeBlocks state
   useEffect(() => {
@@ -14,12 +13,13 @@ const LobbyPage = () => {
     .then((data) => {
       setCodeBlocks(data);
       setIsLoading(false);
+      console.log(data);
     });
   }, []);
   
   return (
     <div className="lobby-page">
-      <h1>Choose code block</h1>
+      <h1 className="lobby-title">Choose code block</h1>
       {isLoadibg ? (
         <h1>Loading...</h1>
       ) : (

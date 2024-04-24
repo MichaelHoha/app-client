@@ -4,6 +4,23 @@
   padding: 10px;
 }
 
+.lobby-title {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 30px;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.lobby-title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  margin-top: 10px;
+}
+
 .lobby-list {
   display: flex;
   flex-direction: column;
@@ -21,5 +38,10 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
-  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.lobby-item:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
