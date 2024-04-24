@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LobbyPage from "./pages/LobbyPage";
 import CodeBlockPage from "./pages/CodeBlockPage";
+import './App.css';
 
 const App = () => {
   return (
