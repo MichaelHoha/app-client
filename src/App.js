@@ -7,7 +7,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<LobbyPage />} />
-        <Route path="/codeblocks/" element={<CodeBlockPage />} />
+        <Route path="/codeblocks/:id" element={<CodeBlockPage />} />
       </Routes>
     </Router>
   );
